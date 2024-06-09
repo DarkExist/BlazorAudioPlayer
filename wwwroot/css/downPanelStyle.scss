@@ -1,0 +1,81 @@
+﻿.downPanel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    z-index: 999999;
+    flex-direction: column;
+    width: 100%;
+    background-color: #b49696;
+
+    .progressBar {
+        h1 {
+            font-size: 5px;
+        }
+    }
+
+    .trackParameters {
+        display: flex;
+        padding-bottom: 4px;
+
+        img {
+            width: 48px;
+            height: 48px;
+            padding: 16px;
+
+            &:hover {
+                background-color: lightgray;
+            }
+        }
+
+        .trackManage {
+            img {
+                gap: 3px;
+            }
+        }
+
+        .trackName {
+            margin-bottom: -4px;
+            padding-left: 4px;
+            display: flex;
+
+            img {
+                &.trackAvatar {
+                    padding: 0;
+                    border-radius: 4px;
+
+                    &:hover {
+                        filter: brightness(0.65)
+                    }
+                }
+            }
+
+            .secondColumn {
+                padding: 0 16px;
+
+                h3 {
+                    font-size: 16px;
+                    font-weight: 600;
+
+                    &:hover {
+                        filter: brightness(2.3)
+                    }
+                }
+
+                h4 {
+                    font-size: 14px;
+                    font-weight: 550;
+
+                    &:hover {
+                        filter: brightness(2.3)
+                    }
+                }
+            }
+        }
+
+        .trackSettings {
+            margin-left: auto;
+            gap: 8px;
+        }
+    }
+}

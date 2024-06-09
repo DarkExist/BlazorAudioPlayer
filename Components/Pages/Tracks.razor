@@ -1,0 +1,58 @@
+﻿<link rel="stylesheet" href="/css/tracksStyle.css">
+
+@page "/tracks"
+
+<main>
+	<div class="upPanel">
+		<h2>Треки</h2>
+		<div class="manageTracks">
+			<img src=@plus>
+			<img src=@refresh>
+		</div>
+	</div>
+
+	<ul class="trackList">
+		@foreach (var song in songList)
+		{
+			<li>
+				<img class="trackAvatar" src=@song.IconPath>
+				<div class="trackName">
+					<h3 class="mainTrackName">@song.SongName</h3>
+					<h4 class="secondTrackName">@song.PublisherName</h4>
+				</div>
+				<img class="more" src=@more>
+				<img class="favourite" src=@(song.IsFavourite ? favourite : notFavourite)>
+				<span class="trackDuration">@(song.Duration / 60):@(song.Duration % 60)</span>
+			</li>
+		}
+	</ul>
+</main>
+
+@code {
+	const string plus = "/images/plus.png";
+	const string refresh = "/images/refresh.png";
+	const string defaultAvatar = "/images/defaultTrackAvatar.png";
+	const string more = "/images/more.png";
+	public string mainTrackName = "defaultName";
+	public string secondTrackName = "defaultPublisher";
+	public string trackAvatar = defaultAvatar;
+	public string notFavourite = "/images/favouriteDisable.png";
+	public string favourite = "/images/favouriteEnable.png";
+
+
+
+	public class ShowSong
+	{
+		public string IconPath { get; set; }
+		public string SongName { get; set; }
+		public string PublisherName { get; set; }
+		public bool IsFavourite {get; set; }
+		public int Duration {get; set;}	
+	}
+
+	private List<ShowSong> songList = new List<ShowSong> {
+		new ShowSong {IconPath = defaultAvatar, SongName = "name", PublisherName = "pName", IsFavourite = true, Duration = 132},
+		new ShowSong{IconPath = defaultAvatar, SongName = "2name", PublisherName = "2pName", IsFavourite = true, Duration = 16662},
+		new ShowSong { IconPath = defaultAvatar, SongName = "3name", PublisherName = "3pName", IsFavourite = true, Duration = 52}
+	};
+}

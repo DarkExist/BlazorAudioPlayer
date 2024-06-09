@@ -1,0 +1,14 @@
+﻿[
+  {
+    "outputFile": "wwwroot/css/sideMenuStyle.css",
+    "inputFile": "wwwroot/css/sideMenuStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/downPanelStyle.css",
+    "inputFile": "wwwroot/css/downPanelStyle.scss"
+  },
+  {
+    "outputFile": "wwwroot/css/tracksStyle.css",
+    "inputFile": "wwwroot/css/tracksStyle.scss"
+  }
+]

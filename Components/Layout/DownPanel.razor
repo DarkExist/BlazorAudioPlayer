@@ -1,0 +1,47 @@
+﻿<link rel="stylesheet" href="/css/sideMenuStyle.css">
+
+<div class="downPanel noselect">
+    <div class="progressBar">
+        <h1>asd</h1>
+    </div>
+
+    <div class="trackParameters">
+        <div class="trackManage">
+            <img src=@previousTrack>
+            <img src=@playPause>
+            <img src=@nextTrack>
+        </div>
+
+
+        <div class="trackName">
+            <img class="trackAvatar" src=@trackAvatar>
+            <div class="secondColumn">
+                <h3 class="mainTrackName">@mainTrackName</h3>
+                <h4 class="secondTrackName">@secondTrackName</h4>
+            </div>
+        </div>
+
+        <img class="favouriteTrack" src=@favourite>
+
+        <div class="trackSettings">
+            <img src=@volume>
+            <img src=@more>
+        </div>
+    </div>
+</div>
+
+
+@code {
+
+    const string previousTrack = "/images/previousTrack.png";
+    const string nextTrack = "/images/nextTrack.png";
+    const string defaultAvatar = "/images/defaultTrackAvatar.png";
+    const string more = "/images/more.png";
+    public string mainTrackName = "defaultName";
+    public string secondTrackName = "defaultPublisher";
+    public string trackAvatar = defaultAvatar;
+    public string playPause = "/images/pause.png";
+    public string volume = "/images/lowVolume.png";
+    public string notFavourite = "/images/favouriteDisable.png";
+    public string favourite = "/images/favouriteEnable.png";
+}

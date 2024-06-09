@@ -1,0 +1,47 @@
+﻿<link rel="stylesheet" href="/css/downPanelStyle.css">
+
+<div class="burgerMenu">
+    <img class="burgerIcon" src=@burgerMenu @onclick="ToggleMenu">
+    <div class="sideMenu @(isMenuVisible ? "show" : "hide")">
+        <ul class="noselect">
+            @foreach (var item in menuElements)
+            {
+                <NavLink href=@item.Item3>
+                    <li class="@((item == selectedMenuElem) ? "selected": "")" @onclick="() => MenuChoose(item)"><img src=@item.Item1> <h3>@item.Item2</h3></li>
+                </NavLink>
+            }
+        </ul>
+    </div>
+
+</div>
+
+@code {
+    const string homeIcon = "/images/home.png";
+    const string albumsIcon = "/images/albums.png";
+    const string tracksIcon = "/images/tracks.png";
+    const string burgerMenu = "/images/burger1.png";
+    const string homeHref = "/";
+    const string tracksHref = "tracks";
+    const string albumsHref = "counter";
+
+    private bool isMenuVisible = false;
+    private void ToggleMenu()
+    {
+        isMenuVisible = !isMenuVisible;
+        Console.WriteLine("Clicked!");
+    }
+
+    List<Tuple<string, string, string>> menuElements = new List<Tuple<string, string, string>>
+    {
+        new Tuple<string, string, string>(homeIcon, "Главная", homeHref),
+        new Tuple<string, string, string>(tracksIcon, "Треки", tracksHref),
+        new Tuple<string, string, string>(albumsIcon, "Альбомы", albumsHref)
+    };
+
+    private Tuple<string, string, string> selectedMenuElem;
+
+    private void MenuChoose(Tuple<string, string, string> item)
+    {
+        selectedMenuElem = item;
+    }
+}
